@@ -15,8 +15,13 @@ link() {
 	ln -s "${DIR}/${name}" ~/."${name}"
 }
 
-link "bashrc"
 link "profile"
+link "shellrc"
+
+link "bash_profile"
+link "bash_prompt"
+link "bashrc"
+
+link "zsh"
 link "zprofile"
 link "zshrc"
-link "zsh"

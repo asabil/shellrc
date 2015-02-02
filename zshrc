@@ -1,5 +1,6 @@
 ADOTDIR="$HOME/.zsh/antigen"
-source "$HOME/.zsh/antigen.zsh"
+source ~/.zsh/antigen.zsh
+[[ -f ~/.shellrc ]] && source ~/.shellrc
 
 bindkey -e
 
