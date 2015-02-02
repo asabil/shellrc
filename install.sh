@@ -17,5 +17,6 @@ link() {
 
 link "bashrc"
 link "profile"
+link "zprofile"
 link "zshrc"
 link "zsh"
