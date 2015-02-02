@@ -4,7 +4,9 @@ export LANG=en_US.UTF-8
 export NAME="Ali Sabil"
 export EMAIL_ADDRESS="example@example.net"
 export EMAIL=$EMAIL_ADDRESS
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+if /usr/libexec/java_home -v 1.8 >/dev/null 2>&1; then
+	export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+fi
 
 [[ -d "$HOME/.local/bin" ]] && PATH="$HOME/.local/bin:$PATH"
 [[ -d "$HOME/.cabal/bin" ]] && PATH="$HOME/.cabal/bin:$PATH"
