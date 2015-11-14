@@ -14,4 +14,7 @@ fi
 [[ -d "/Applications/Flex/bin" ]] && PATH="$PATH:/Applications/Flex/bin"
 
 export NVM_DIR="$HOME/.local/lib/nvm"
-brew -v >/dev/null 2>&1 && source $(brew --prefix nvm)/nvm.sh
+if brew -v >/dev/null 2>&1; then
+	NVM_PREFIX=$(brew --prefix nvm)
+	[[ -d "$NVM_PREFIX" ]] && source "${NVM_PREFIX}/nvm.sh"
+fi
