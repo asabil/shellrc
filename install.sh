@@ -8,21 +8,17 @@ while [ -h "$SOURCE" ]; do
 done
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
-link() {
-	local name=$1;
-	[[ -z "$name" ]] && echo "Expecting name" && exit 1;
-	echo "Symlinking ~/.${name}"
-	rm -rf ~/."${name}"
-	ln -s "${DIR}/${name}" ~/."${name}"
-}
+set -o verbose
 
-link "profile"
-link "shellrc"
+rm -f ~/.profile
+rm -f ~/.zprofile
+rm -f ~/.zlogin
 
-link "bash_profile"
-link "bash_prompt"
-link "bashrc"
+ln -nsf "${DIR}/shellenv" ~/.shellenv
+ln -nsf "${DIR}/shellrc" ~/.shellrc
 
-link "zsh"
-link "zprofile"
-link "zshrc"
+ln -nsf "${DIR}/bash_profile" ~/.bash_profile
+ln -nsf "${DIR}/bashrc" ~/.bashrc
+
+ln -nsf "${DIR}/zshenv" ~/.zshenv
+ln -nsf "${DIR}/zshrc" ~/.zshrc

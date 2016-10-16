@@ -1,4 +1,0 @@
-PS1="\[\033]0;\w\007\]";
-PS1+="\n\[$(tput bold; tput setaf 12)\]\w\n";
-PS1+="$(tput setaf 13)❯ $(tput sgr0)";
-export PS1

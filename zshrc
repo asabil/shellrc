@@ -1,12 +1,11 @@
+[[ -f ~/.shellrc ]] && source ~/.shellrc
+
 ADOTDIR="$HOME/.zsh/antigen"
 source ~/.zsh/antigen.zsh
-[[ -f ~/.shellrc ]] && source ~/.shellrc
 
 bindkey -e
 
-antigen use oh-my-zsh
-
-antigen bundle zsh-users/zsh-completions src
+antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle mafredri/zsh-async
 antigen bundle sindresorhus/pure

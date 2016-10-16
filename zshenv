@@ -1,0 +1,1 @@
+[[ -f ~/.shellenv ]] && source ~/.shellenv
