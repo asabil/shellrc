@@ -1,18 +1,27 @@
 [[ -f ~/.shellrc ]] && source ~/.shellrc
 
-ADOTDIR="$HOME/.zsh/antigen"
-source ~/.zsh/antigen.zsh
-
 bindkey -e
 
-antigen bundle zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle mafredri/zsh-async
-antigen bundle sindresorhus/pure
+source <(antibody init)
 
-antigen bundle git
-antigen bundle node
-antigen bundle npm
-antigen bundle command-not-found
+antibody bundle zsh-users/zsh-completions
+antibody bundle zsh-users/zsh-syntax-highlighting
+antibody bundle zsh-users/zsh-history-substring-search
+antibody bundle mafredri/zsh-async
+antibody bundle sindresorhus/pure
 
-antigen apply
+## Completion
+
+# Force rehash when command not found
+_force_rehash() {
+  (( CURRENT == 1 )) && rehash
+  return 1
+}
+
+zstyle ':completion:*' completer _oldlist _expand _force_rehash _complete _match _ignored _approximate
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
+zstyle ':completion:*' insert-tab pending
+zstyle ':completion:*' menu select=2
+
+autoload -Uz compinit
+compinit -C
