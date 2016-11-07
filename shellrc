@@ -16,3 +16,7 @@ man() {
     LESS_TERMCAP_ZW=$(tput rsupm) \
     man "$@"
 }
+
+if NVM_PREFIX=$(brew --prefix nvm); then
+	[[ -d "$NVM_PREFIX" ]] && source "${NVM_PREFIX}/nvm.sh"
+fi

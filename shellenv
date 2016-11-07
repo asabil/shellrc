@@ -5,15 +5,7 @@ export NAME="Ali Sabil"
 export EMAIL_ADDRESS="example@example.net"
 export EMAIL=$EMAIL_ADDRESS
 
-if /usr/libexec/java_home -v 1.8 >/dev/null 2>&1; then
-	export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-fi
-
 [[ -d "$HOME/.local/bin" ]] && PATH="$HOME/.local/bin:$PATH"
 [[ -d "$HOME/.cabal/bin" ]] && PATH="$HOME/.cabal/bin:$PATH"
 
 export NVM_DIR="$HOME/.local/lib/nvm"
-if brew -v >/dev/null 2>&1; then
-	NVM_PREFIX=$(brew --prefix nvm)
-	[[ -d "$NVM_PREFIX" ]] && source "${NVM_PREFIX}/nvm.sh"
-fi
