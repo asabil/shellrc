@@ -1,5 +1,3 @@
-export EDITOR=vim
-
 man() {
     env LESS_TERMCAP_mb=$(tput bold; tput setaf 1) \
     LESS_TERMCAP_md=$(tput bold; tput setaf 4) \
@@ -17,6 +15,6 @@ man() {
     man "$@"
 }
 
-if NVM_PREFIX=$(brew --prefix nvm); then
-	[[ -d "$NVM_PREFIX" ]] && source "${NVM_PREFIX}/nvm.sh"
-fi
+docker-sh() {
+    docker run -i -t --rm -v $(pwd):/mnt/host debian /bin/bash
+}
